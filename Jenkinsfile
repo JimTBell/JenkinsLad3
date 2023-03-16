@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('Cleanup Stage') {
             steps {
-                sh "docker stop  $(docker ps -q) && echo \"all contianers stopped\" || echo \"No contains to stop\""
-		sh "docker rm -f \$(docker ps -a -q)"
-		sh "docker rmi -f \$(docker images -q)"
+                sh "docker stop  \$(docker ps -q)  || echo \"No containers to stop\""
+		sh "docker rm -f \$(docker ps -a -q) || echo \"No containers removed\""
+		sh "docker rmi -f \$(docker images -q) || echo \"No images removed\""
             }
         }
         stage('Build Stage') {
