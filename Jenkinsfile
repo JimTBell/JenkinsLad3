@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('Cleanup Stage') {
             steps {
-                sh "docker stop $(docker ps -q)"
-		sh "docker rm -f $(docker ps -a -q)"
-		sh "docker rmi -f $(docker images -q)"
+                sh "docker stop \$(docker ps -q)"
+		sh "docker rm -f \$(docker ps -a -q)"
+		sh "docker rmi -f \$(docker images -q)"
             }
         }
         stage('Build Stage') {
