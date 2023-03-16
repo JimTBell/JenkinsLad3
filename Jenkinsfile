@@ -10,6 +10,7 @@ pipeline {
         }
         stage('Build Stage') {
             steps {
+		sh "ls -al"
                 sh "docker build -t jimtbell/task1 Task1"
             }
         }
